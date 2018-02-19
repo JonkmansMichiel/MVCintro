@@ -19,7 +19,7 @@ namespace MVCintro
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services) //word een service gebruikt
         {
             services.AddMvc();
         }
@@ -38,13 +38,13 @@ namespace MVCintro
             }
 
             app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvcWithDefaultRoute(); //== outdated function
+            //app.UseMvc(routes => ---------------------------------------------------------> OUTDATED
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }
