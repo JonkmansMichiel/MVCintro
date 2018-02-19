@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using ClassLibrary1;
 namespace MVCintro.Controllers
 {
     public class HomeController : Controller
@@ -30,5 +30,16 @@ namespace MVCintro.Controllers
             
             return View();
         }
+        public ViewResult Studenten()
+        {
+            List<Student> studenten = new List<Student>
+            {
+                new Student {Id=23, Naam="Jefke", AfstudeerGraad= Graad.Voldoening},
+                new Student {Id=23, Naam="Michiel", AfstudeerGraad=Graad.Onderscheiding}
+            };
+            ViewBag.Studenten = studenten;
+            return View();
+        }
+
     }
 }
